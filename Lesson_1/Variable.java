@@ -1,21 +1,21 @@
 public class Variable {   
     public static void main(String[] args) {
-        byte bt = 127;
-        short sh = 32000;
-        int in = 1000000;
-        long ln = 9999999999999l;
-        float fl = 3.1415f;
-        double dl = 3.141592d;
-        char ch = 'c';
-        boolean bool = true;
+        byte varByte = 127;
+        short varShort = 32000;
+        int varInt = 1000000;
+        long varLong = 9999999999999L;
+        float varFloat = 3.1415F;
+        double varDouble = 3.141592;
+        char varChar = 'c';
+        boolean varBoolean = true;
 
-        System.out.println("bt=" + bt);
-        System.out.println("sh=" + sh);
-        System.out.println("in=" + in);
-        System.out.println("ln=" + ln);
-        System.out.println("fl=" + fl);
-        System.out.println("dl=" + dl);
-        System.out.println("ch=" + ch);
-        System.out.println("bool=" + bool);
+        System.out.println("varByte=" + varByte);
+        System.out.println("varShort=" + varShort);
+        System.out.println("varInt=" + varInt);
+        System.out.println("varLong=" + varLong);
+        System.out.println("varFloat=" + varFloat);
+        System.out.println("varDouble=" + varDouble);
+        System.out.println("varChar=" + varChar);
+        System.out.println("varBoolean=" + varBoolean);
     }
 }
