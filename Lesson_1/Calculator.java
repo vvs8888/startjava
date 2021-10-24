@@ -1,6 +1,6 @@
 public class Calculator {
     public static void main(String[] args) {
-        int a = 2;
+        int a = 0;
         int b = -3;
         float result = 0;
         char oper = '^'; // +, -, *, /, ^, %
@@ -31,20 +31,20 @@ public class Calculator {
                 isResultExist = false;
             } else if (b == 0) {
                 result = 1;
-            } else if (b == 1) {
-                result = a;
-            } else if (b == -1) {
-                result = 1F / a;
+            } else if (a == 0) {
+                if (b < 0) {
+                    System.out.println("Нельзя вjзвести ноль в отрицательную степень.");
+                    isResultExist = false;
+                } else {
+                    result = 0;
+                }
             } else {
                 result = a;
-                for (int i= 2; i <= ((b < 0) ? -b : b); i++) {
+                for (int i = 2; i <= ((b < 0) ? -b : b); i++) {
                     result = result * a;
                 }
                 if (b < 0) {
                     result = 1F / result;
-                    if (b % 2 != 0) {
-                        result = result * (-1);
-                    }
                 }
             }
         }

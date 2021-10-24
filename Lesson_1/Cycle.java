@@ -19,8 +19,7 @@ public class Cycle {
             if (j % 2 != 0) {
                 result = result + j;
             }
-            j++;
-        } while (j <= 20);
+        } while (++j <= 20);
         System.out.println("Сумма нечетных чисел от 10 до 20 равна " + result);
     }
 }
