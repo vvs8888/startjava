@@ -4,15 +4,15 @@ public class Cycle {
         for (int i = 0; i <= 20; i++) {
             System.out.println("Число " + i);
         }
-        System.out.println("");
-        System.out.println("Цикл while:");
+
+        System.out.println("\nЦикл while:");
         int i = 6;
         while (i >= -6) {
             System.out.println("Число " + i);
             i = i - 2;
         }
-        System.out.println("");
-        System.out.println("Цикл do while:");
+
+        System.out.println("\nЦикл do while:");
         int j = 10;
         int result = 0;
         do {

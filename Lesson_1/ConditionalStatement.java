@@ -8,17 +8,21 @@ public class ConditionalStatement {
         if (age > 20) {
             System.out.println("Возраст " + age + " больше 20.");
         }
+
         if (isMaleSex) {
             System.out.println("Указан мужской пол.");
         }
+
         if (!isMaleSex) {
             System.out.println("Указан не мужской пол.");
         }
+
         if (height < 180) {
             System.out.println("Карлик.");
         } else {
             System.out.println("Великан.");
         }
+
         if (firstNameSymbol == 'M') {
             System.out.println("Первая буква имени M.");
         } else if (firstNameSymbol == 'I') {
