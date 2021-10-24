@@ -33,7 +33,7 @@ public class Calculator {
                 result = 1;
             } else if (a == 0) {
                 if (b < 0) {
-                    System.out.println("Нельзя вjзвести ноль в отрицательную степень.");
+                    System.out.println("Нельзя возвести ноль в отрицательную степень.");
                     isResultExist = false;
                 } else {
                     result = 0;
