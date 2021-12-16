@@ -19,6 +19,5 @@ public class WolfTest1 {
         wolfOne.run();
         wolfOne.howl();
         wolfOne.hunt();
-
     }
 }

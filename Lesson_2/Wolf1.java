@@ -25,5 +25,4 @@ public class Wolf1 {
     void hunt() {
         System.out.println("hunting");
     }
-
 }

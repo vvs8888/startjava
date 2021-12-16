@@ -21,5 +21,4 @@ public class Person {
     void learnJava() {
         System.out.println("lerning");
     }
-
 }

@@ -1,7 +1,7 @@
 public class Wolf2 {
     
     private String name;
-    private char sex;
+    private Sex sex;
     private int weight;
     private int age;
     private String color;
@@ -9,7 +9,7 @@ public class Wolf2 {
     public String getName() {
         return name;
     }
-    public char getSex() {
+    public Sex getSex() {
         return sex;
     }
     public int getWeight() {
@@ -25,7 +25,7 @@ public class Wolf2 {
     public void setName(String name) {
         this.name = name;
     }
-    public void setSex(char sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
     public void setWeight(int weight) {
@@ -61,5 +61,9 @@ public class Wolf2 {
     public void hunt() {
         System.out.println("hunting");
     }
+}
 
+enum Sex {
+    MALE,
+    FEMALE;
 }
