@@ -1,22 +1,10 @@
 public class Calculator {
     private float result;
-    private boolean isResultExist;
-    private String errMsg;
+    private String resultStr;
 
-    public float getResult() {
-        return result;
-    }
-
-    public boolean getIsResultExist() {
-        return isResultExist;
-    }
-
-    public String getErrMsg() {
-        return errMsg;
-    }
-
-    public void calc (int a, char oper, int b) {
-        isResultExist = true;
+    public String calc (int a, char oper, int b) {
+        result = 0.0f;
+        resultStr = "";
 
         switch(oper) {
             case '+' :
@@ -31,8 +19,7 @@ public class Calculator {
             case '/' :
             case '%' :
                 if (b == 0) {
-                    errMsg = "На ноль делить нельзя!";
-                    isResultExist = false;
+                    resultStr = "Результат не определен: на ноль делить нельзя!";
                 } else if (oper == '/') {
                     result = (float)a / b;
                 } else {
@@ -41,14 +28,12 @@ public class Calculator {
                 break;
             case  '^' :
                 if (a == 0 && b == 0) {
-                    errMsg = "Нулевая степерь нуля не определена.";
-                    isResultExist = false;
+                    resultStr = "Результат не определен: нулевая степень нуля не определена.";
                 } else if (b == 0) {
                     result = 1;
                 } else if (a == 0) {
                     if (b < 0) {
-                        errMsg = "Нельзя возвести ноль в отрицательную степень.";
-                        isResultExist = false;
+                        resultStr = "Результат не определен: нельзя возвести ноль в отрицательную степень.";
                     } else {
                         result = 0;
                     }
@@ -63,8 +48,11 @@ public class Calculator {
                 }
                 break;
             default :
-                errMsg = "Нет такого оператора.";
-                isResultExist = false;
+                resultStr = "Результат не определен: оператор " + oper + " не поддерживается.";
         }
+        if (resultStr == ""){
+            resultStr = String.format("%.2f", result);
+        }
+        return resultStr;
     }
 }

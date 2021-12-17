@@ -9,8 +9,8 @@ public class Wolf2 {
     public String getName() {
         return name;
     }
-    public Sex getSex() {
-        return sex;
+    public String getSex() {
+        return sex.getGenderRu();
     }
     public int getWeight() {
         return weight;
@@ -64,6 +64,22 @@ public class Wolf2 {
 }
 
 enum Sex {
-    MALE,
-    FEMALE;
+    MALE("male", "кобель"),
+    FEMALE("female", "сука");
+
+    private String genderEn;
+    private String genderRu;
+
+    private Sex(String sEn, String sRu) {
+        genderEn = sEn;
+        genderRu = sRu;
+    }
+
+    public String getGenderRu() {
+        return genderRu;
+    }
+
+    public String getGenderEn() {
+        return genderEn;
+    }
 }

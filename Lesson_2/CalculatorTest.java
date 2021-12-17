@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String[] args) {
-        boolean isResultExist;
         String yesNo;
         
         Calculator calcOne = new Calculator();
@@ -15,12 +14,7 @@ public class CalculatorTest {
             System.out.print("Введите второе число: ");
             int b = scanner.nextInt();
 
-            calcOne.calc(a, oper, b);
-            isResultExist = calcOne.getIsResultExist();
-
-            if (isResultExist == true)
-                System.out.println(String.format("%d%s%d=%.2f", a, oper, b, calcOne.getResult()));
-            else System.out.println(calcOne.getErrMsg());
+            System.out.println(String.format("%d%s%d=%s", a, oper, b, calcOne.calc(a, oper, b)));
 
             scanner.nextLine(); // считываем конец строки после nextInt
 
