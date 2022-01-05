@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class CalculatorTest {
     public static void main(String[] args) {
+
         String yesNo;
-        
-        Calculator calcOne = new Calculator();
+
         do {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Введите первое число: ");
@@ -14,7 +14,13 @@ public class CalculatorTest {
             System.out.print("Введите второе число: ");
             int b = scanner.nextInt();
 
-            System.out.println(String.format("%d%s%d=%s", a, oper, b, calcOne.calc(a, oper, b)));
+            Calculator calcOne = new Calculator();
+            Result calcResult = calcOne.calc(a, oper, b);
+            String errMsg = calcResult.getErrMsg();
+
+            if (errMsg == null) {
+                System.out.println(String.format("%d%s%d=%.2f", a, oper, b, calcResult.getResult()));
+            } else System.out.println(String.format("%s", errMsg));
 
             scanner.nextLine(); // считываем конец строки после nextInt
 

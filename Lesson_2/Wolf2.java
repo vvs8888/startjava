@@ -9,27 +9,26 @@ public class Wolf2 {
     public String getName() {
         return name;
     }
-    public String getSex() {
-        return sex.getGenderRu();
-    }
-    public int getWeight() {
-        return weight;
-    }
-    public int getAge() {
-        return age;
-    }
-    public String getColor() {
-        return color;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSex() {
+        return sex.getGenderRu();
     }
     public void setSex(Sex sex) {
         this.sex = sex;
     }
+
+    public int getWeight() {
+        return weight;
+    }
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public int getAge() {
+        return age;
     }
     public void setAge(int age) {
         if (age > 8) {
@@ -37,6 +36,10 @@ public class Wolf2 {
         } else {
             this.age = age;
         }
+    }
+
+    public String getColor() {
+        return color;
     }
     public void setColor(String color) {
         this.color = color;

@@ -1,10 +1,8 @@
 public class Calculator {
-    private float result;
-    private String resultStr;
-
-    public String calc (int a, char oper, int b) {
-        result = 0.0f;
-        resultStr = "";
+    public Result calc (int a, char oper, int b) {
+        Result calcResult = new Result();
+        float result = 0F;
+        String resultStr = null;
 
         switch(oper) {
             case '+' :
@@ -50,9 +48,27 @@ public class Calculator {
             default :
                 resultStr = "Результат не определен: оператор " + oper + " не поддерживается.";
         }
-        if (resultStr == ""){
-            resultStr = String.format("%.2f", result);
-        }
-        return resultStr;
+        calcResult.setResult(result);
+        calcResult.setErrMsg(resultStr);
+        return calcResult;
+    }
+}
+
+class Result {
+    private float result;
+    private String errMsg;
+
+    public void setResult(float result) {
+        this.result = result;
+    }
+    public float getResult() {
+        return result;
+    }
+
+    public void setErrMsg(String errMsg) {
+        this.errMsg = errMsg;
+    }
+    public String getErrMsg() {
+        return errMsg;
     }
 }
