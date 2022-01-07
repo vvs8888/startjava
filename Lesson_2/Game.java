@@ -1,26 +1,46 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public class Game {
-    public static void main(String[] args) {
-        int needGuess = 13;
-        int atempt = 83;
-        int bottom = 0;
-        int upper = 100;
+    Player playerOne;
+    Player playerTwo;
 
-        while (needGuess != atempt) {
-            if (atempt < needGuess) {
-                System.out.println("Данное число (" + atempt + ") меньше того, что загадал компьютер");
-                bottom = atempt;
-                atempt = bottom + (upper - bottom) / 2;
-                if (atempt == bottom) {
-                    atempt ++;
-                }
+    public Game(Player playerOne, Player playerTwo) {
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
+    }
 
+    private void playerAtempt(int number, Player player) {
+        System.out.print(player.getName() + ", введите число: ");
+        Scanner scanner = new Scanner(System.in);
+        player.setNumber(scanner.nextInt());
+        
+         if (number != playerOne.getNumber()) {
+            if (player.getNumber() < number) {
+                System.out.println("Данное число (" + player.getNumber() + ") меньше того, что загадал компьютер");
             } else {
-                System.out.println("Данное число (" + atempt + ") больше того, что загадал компьютер");
-                upper = atempt;
-                atempt = bottom + (upper - bottom) / 2;
+                System.out.println("Данное число (" + player.getNumber() + ") больше того, что загадал компьютер");
             }
         }
+    }
 
-        System.out.println("Поздравляю, число " + atempt + " угадано!");
+    public void startGame() {
+        Random random = new Random();
+        int needGuess = random.nextInt(100);
+        boolean isFinish = false;
+
+        while (!isFinish) {
+            playerAtempt(needGuess, playerOne);
+            if (needGuess == playerOne.getNumber()){
+                isFinish = true;
+                System.out.println("Поздравляем! " + playerOne.getName() +" угадал число " + needGuess + " и выиграл у игрока " + playerTwo.getName() + "!");
+            } else {
+                playerAtempt(needGuess, playerTwo);
+                if (needGuess == playerTwo.getNumber()){
+                    isFinish = true;
+                    System.out.println("Поздравляем! " + playerTwo.getName() + " угадал число " + needGuess + " и выиграл у игрока " + playerOne.getName() + "!");
+                }
+            }
+        }
     }
 }
