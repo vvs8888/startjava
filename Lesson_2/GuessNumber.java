@@ -15,7 +15,7 @@ public class GuessNumber {
         Scanner scanner = new Scanner(System.in);
         player.setNumber(scanner.nextInt());
         
-         if (number != playerOne.getNumber()) {
+         if (number != player.getNumber()) {
             if (player.getNumber() < number) {
                 System.out.println("Данное число (" + player.getNumber() + ") меньше того, что загадал компьютер");
             } else {
@@ -26,7 +26,7 @@ public class GuessNumber {
 
     public void startGame() {
         Random random = new Random();
-        int needGuess = random.nextInt(100);
+        int needGuess = random.nextInt(100) + 1;
         boolean isFinish = false;
 
         while (!isFinish) {
