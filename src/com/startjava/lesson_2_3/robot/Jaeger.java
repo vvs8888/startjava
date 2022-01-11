@@ -12,7 +12,7 @@ public class Jaeger {
 
     public Jaeger() {} // конструктор без аргументов для выполнения первой части задания
 
-    public Jaeger(  String modelName,
+    public Jaeger(String modelName,
                     String mark,
                     String origin,
                     float height,
@@ -31,6 +31,7 @@ public class Jaeger {
     public String getModelName() {
         return modelName;
     }
+
     public void setModelName(String modelName) {
         this.modelName = modelName;
     }
@@ -38,6 +39,7 @@ public class Jaeger {
     public String getMark() {
         return mark;
     }
+
     public void setMark(String mark) {
         this.mark = mark;
     }
@@ -45,6 +47,7 @@ public class Jaeger {
     public String getOrigin() {
         return origin;
     }
+
     public void setOrigin(String origin) {
         this.origin = origin;
     }
@@ -52,6 +55,7 @@ public class Jaeger {
     public float getHeight() {
         return height;
     }
+
     public void setHeight(float height) {
         this.height = height;
     }
@@ -59,6 +63,7 @@ public class Jaeger {
     public float getWeight() {
         return weight;
     }
+
     public void setWeight(float weight) {
         this.weight = weight;
     }
@@ -66,6 +71,7 @@ public class Jaeger {
     public int getStrength() {
         return strength;
     }
+
     public void setStrength(int strength) {
         this.strength = strength;
     }
@@ -73,10 +79,10 @@ public class Jaeger {
     public int getArmor() {
         return armor;
     }
+
     public void setArmor(int armor) {
         this.armor = armor;
     }
-
 
     public boolean drift() {
         return true;
@@ -86,9 +92,10 @@ public class Jaeger {
         System.out.println(getModelName() + ": moving");
     }
 
+    @Override
     public String toString() {
-        return String.format("Jaeger's model name is %s \nJaeger's mark is  %s \nJaeger's origin is  %s \nJaeger's height is  %.1f \n" +
-                             "Jaeger's weight is  %.1f \nJaeger's strength is  %d \nJaeger's armor is  %d",
-                             modelName, mark, origin, height, weight, strength, armor);
+        return String.format("Jaeger's model name is %s %nJaeger's mark is  %s %nJaeger's origin is  %s %nJaeger's height is  %.1f %n" +
+                "Jaeger's weight is  %.1f %nJaeger's strength is  %d %nJaeger's armor is  %d",
+                modelName, mark, origin, height, weight, strength, armor);
     }
 }

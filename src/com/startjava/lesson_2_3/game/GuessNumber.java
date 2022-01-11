@@ -12,20 +12,6 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    private void playerAtempt(int number, Player player) {
-        System.out.print(player.getName() + ", введите число: ");
-        Scanner scanner = new Scanner(System.in);
-        player.setNumber(scanner.nextInt());
-        
-         if (number != player.getNumber()) {
-            if (player.getNumber() < number) {
-                System.out.println("Данное число (" + player.getNumber() + ") меньше того, что загадал компьютер");
-            } else {
-                System.out.println("Данное число (" + player.getNumber() + ") больше того, что загадал компьютер");
-            }
-        }
-    }
-
     public void startGame() {
         Random random = new Random();
         int needGuess = random.nextInt(100) + 1;
@@ -42,6 +28,20 @@ public class GuessNumber {
                     isFinish = true;
                     System.out.println("Поздравляем! " + playerTwo.getName() + " угадал число " + needGuess + " и выиграл у игрока " + playerOne.getName() + "!");
                 }
+            }
+        }
+    }
+
+    private void playerAtempt(int number, Player player) {
+        System.out.print(player.getName() + ", введите число: ");
+        Scanner scanner = new Scanner(System.in);
+        player.setNumber(scanner.nextInt());
+        
+         if (number != player.getNumber()) {
+            if (player.getNumber() < number) {
+                System.out.println("Данное число (" + player.getNumber() + ") меньше того, что загадал компьютер");
+            } else {
+                System.out.println("Данное число (" + player.getNumber() + ") больше того, что загадал компьютер");
             }
         }
     }
