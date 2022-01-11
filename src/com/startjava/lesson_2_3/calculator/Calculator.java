@@ -1,3 +1,5 @@
+package com.startjava.lesson_2_3.calculator;
+
 public class Calculator {
     public Result calc (int a, char oper, int b) {
         Result calcResult = new Result();
