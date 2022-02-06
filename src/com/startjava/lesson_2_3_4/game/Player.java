@@ -6,6 +6,7 @@ public class Player {
     private String name;
     private int[] numbers = new int[10];
     private int cntNumbers;
+    private int cntWins;
 
     public Player(String name) {
         this.name = name;
@@ -26,6 +27,18 @@ public class Player {
             return true;
         }
         return false;
+    }
+
+    public int getCntWins() {
+        return cntWins;
+    }
+
+    public void setCntWins() {
+        cntWins++;
+    }
+
+    public void clearWins() {
+        cntWins = 0;
     }
 
     public void printNumbers() {
