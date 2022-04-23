@@ -1,7 +1,7 @@
 package com.startjava.lesson_2_3_4.animal;
 
 public class Wolf1 {
-    
+
     char sex;
     String name;
     int weight;

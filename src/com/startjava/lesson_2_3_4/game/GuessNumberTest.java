@@ -3,10 +3,11 @@ package com.startjava.lesson_2_3_4.game;
 import java.util.Scanner;
 
 public class GuessNumberTest {
+    static final int cntPlayers = 5;
     public static void main(String[] args) {
 
         try (Scanner scanner = new Scanner(System.in)) {
-            Player[] players = new Player[3];
+            Player[] players = new Player[cntPlayers];
             for (int i = 0; i < players.length; i++) {
                 System.out.print("Введите имя " + (i+1) + "-го игрока: ");
                 players[i] = new Player(scanner.nextLine());
@@ -14,7 +15,7 @@ public class GuessNumberTest {
 
             String yesNo;
             do {
-                GuessNumber gameOne = new GuessNumber(players);
+                GuessNumber gameOne = new GuessNumber(players, scanner);
                 System.out.println("Игра состоит из трёх раундов");
                 for (int i = 1; i <= 3; i++) {
                     gameOne.startGame(i);
@@ -28,7 +29,7 @@ public class GuessNumberTest {
                 do {
                     System.out.print("Хотите продолжить игру? [yes/no]: ");
                     yesNo = scanner.nextLine();
-                } while (!"yes".equals(yesNo) && !"no".equals(yesNo));
+                } while (!"yes".equalsIgnoreCase(yesNo) && !"no".equalsIgnoreCase(yesNo));
             } while ("yes".equals(yesNo));
         }
     }

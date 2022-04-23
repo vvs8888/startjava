@@ -1,7 +1,7 @@
 package com.startjava.lesson_2_3_4.animal;
 
 public class Wolf2 {
-    
+
     private String name;
     private Sex sex;
     private int weight;
@@ -11,6 +11,7 @@ public class Wolf2 {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -18,6 +19,7 @@ public class Wolf2 {
     public String getSex() {
         return sex.getGenderRu();
     }
+
     public void setSex(Sex sex) {
         this.sex = sex;
     }
@@ -25,6 +27,7 @@ public class Wolf2 {
     public int getWeight() {
         return weight;
     }
+
     public void setWeight(int weight) {
         this.weight = weight;
     }
@@ -32,6 +35,7 @@ public class Wolf2 {
     public int getAge() {
         return age;
     }
+
     public void setAge(int age) {
         if (age > 8) {
             System.out.println("Некорректный возраст");
@@ -43,6 +47,7 @@ public class Wolf2 {
     public String getColor() {
         return color;
     }
+
     public void setColor(String color) {
         this.color = color;
     }

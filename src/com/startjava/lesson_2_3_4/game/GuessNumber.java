@@ -4,10 +4,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
-    Player[] players;
+    private final Player[] players;
+    private final Scanner scanner;
 
-    public GuessNumber(Player[] players) {
+    public GuessNumber(Player[] players, Scanner scanner) {
         this.players = players;
+        this.scanner = scanner;
         for (Player player : this.players) {
             player.clearWins();
         }
@@ -17,7 +19,7 @@ public class GuessNumber {
         Random random = new Random();
         int needGuess = random.nextInt(100) + 1;
         boolean isFinish = false;
-        int cntAtempt = 1;
+        int cntAttempt = 1;
 
         for (Player player : players) {
             player.clearNumbers();
@@ -26,16 +28,16 @@ public class GuessNumber {
         System.out.println("Раунд " + round + ") Угадайте число от 1 до 100. У каждого игрока 10 попыток");
         setOrderOfGame();
 
-        while (!isFinish && cntAtempt <= 10) {
+        while (!isFinish && cntAttempt <= 10) {
             for (Player player : players) {
-                isFinish = playerAtempt(needGuess, player, cntAtempt);
+                isFinish = playerAttempt(needGuess, player, cntAttempt);
                 if (isFinish) {
-                    System.out.println("Поздравляем! " + player.getName() + " угадал число " + needGuess + " c " + cntAtempt + "-й попытки!");
+                    System.out.println("Поздравляем! " + player.getName() + " угадал число " + needGuess + " c " + cntAttempt + "-й попытки!");
                     player.setCntWins();
                     break;
                 }
             }
-            cntAtempt++;
+            cntAttempt++;
         }
         if (!isFinish) {
             System.out.println("Никто не выиграл. Было загадано число " + needGuess + ".");
@@ -48,7 +50,10 @@ public class GuessNumber {
     private void setOrderOfGame() {
         System.out.println("Бросим жребий, чтобы определить порядок угадывания числа");
         Random random = new Random();
-        int[] order = {random.nextInt(12), random.nextInt(12), random.nextInt(12)};
+        int[] order = new int[players.length];
+        for (int i = 0; i < order.length; i++) {
+            order[i] = random.nextInt(12);
+        }
         int temp;
         Player tempPlayer;
         for (int i = order.length - 1; i > 0; i--) {
@@ -63,12 +68,15 @@ public class GuessNumber {
                 }
             }
         }
-        System.out.println("По итогам жребия игроки ходят так: 1 - " + players[0].getName() + ", 2 - " + players[1].getName() + ", 3 - " + players[2].getName());
+        System.out.print("По итогам жребия игроки ходят так: ");
+        for (int i = 0; i < players.length-1; i++) {
+            System.out.print((i + 1) + " - " + players[i].getName() + ", ");
+        }
+        System.out.println((players.length) + " - " + players[players.length-1].getName() + ".");
     }
 
-    private boolean playerAtempt(int number, Player player, int cntAtempt) {
-        System.out.print("Попытка " + cntAtempt + " у " + player.getName() + ", введите число: ");
-        Scanner scanner = new Scanner(System.in);
+    private boolean playerAttempt(int number, Player player, int cntAttempt) {
+        System.out.print("Попытка " + cntAttempt + " у " + player.getName() + ", введите число: ");
         if (player.setNumber(scanner.nextInt())) {
             if (number == player.getNumber()) {
                 return true;
@@ -76,7 +84,7 @@ public class GuessNumber {
                 System.out.println("Данное число (" + player.getNumber() + ") " + (player.getNumber() < number ? "меньше" : "больше") + " того, что загадал компьютер");
             }
 
-            if (cntAtempt == 10) {
+            if (cntAttempt == 10) {
                 System.out.println("У игрока " + player.getName() + " закончились попытки!");
             }
         } else System.out.println("Введено число вне диапазона (0, 100]");
