@@ -22,13 +22,16 @@ public class CalculatorTest {
                         }
                         if (words.length != 3) throw new Exception("Некорректное число аргументов выражения!");
 
-                        if (!words[0].matches("[1-9]\\d*")) throw new Exception("Первый аргумент не целое положительное число!");
+                        if (!words[0].matches("[1-9]\\d*"))
+                            throw new Exception("Первый аргумент не целое положительное число!");
                         a = Integer.parseInt(words[0]);
 
-                        if (!words[1].matches("[+-/%^*]")) throw new Exception("Оператор " + words[1] + " не поддерживается!");
+                        if (!words[1].matches("[+-/%^*]"))
+                            throw new Exception("Оператор " + words[1] + " не поддерживается!");
                         operationSign = words[1].charAt(0);
 
-                        if (!words[2].matches("[1-9]\\d*")) throw new Exception("Второй аргумент не целое положительное число!");
+                        if (!words[2].matches("[1-9]\\d*"))
+                            throw new Exception("Второй аргумент не целое положительное число!");
                         b = Integer.parseInt(words[2]);
 
                         isCorrectInt = true;
